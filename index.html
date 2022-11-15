@@ -31,7 +31,7 @@
 
             <h2 class="nothing-todo":class="toDo.length == 0  ? 'active' : ''"> La lista è vuota</h2>
             <ul>
-                <li v-for="(todo,i) in toDo" @click="checkList(todo)" @click="checkList(todo)" :class="todo.checked == true ? 'checked' : ''" :key="todo.text" class="todo" >
+                <li v-for="(todo,i) in toDo" @click="checkList(todo)"  :class="todo.checked == true ? 'checked' : ''" :key="todo.text" class="todo" >
                     {{ todo.text }} 
                     <i class="fas fa-times" @click="deleteTodo(i)"></i>
                 </li>
