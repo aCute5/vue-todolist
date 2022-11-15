@@ -5,26 +5,40 @@ const app = new Vue(
             toDo: [
                 {
                     text: 'Fare la spesa',
-                    done: false,
+                    checked: true,
                 },
                 {
                     text: 'Il cibo dei gatti',
-                    done: false,
+                    checked: true,
                 },
                 {
                    text: "Fare il bucato",
-                   done : false,
+                   checked : true,
                 },
            ],
-           newTodo: "",
+           newTodo:{
+             text:"",
+             checked: true,
+           }
         },
         methods:{
             addTodo(){
-                this.toDo.push(this.newTodo);
-                this.newTodo = "";
+                if(this.newTodo.trim()){
+                    this.ToDo.push({
+                        text: this.newTodo,
+                    });
+                    this.newTodo = '';
+                }
             },
-            deleteTodo(){
+            deleteTodo(index){
                 this.toDo.splice(index,1);
             },
+            checkList(element){
+                if (element.checked) {
+                    element.checked = false
+                }else{
+                    element.checked = true
+                }
+            }
         }
 })

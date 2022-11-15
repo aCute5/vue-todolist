@@ -25,15 +25,15 @@
     </header>
 
     <div id="app" class="container-list">
-        <input type="text" @keyup.enter = "addTodo" class="todoinput" placeholder="Cosa devi fare oggi?" v-model="newtoDo">
+        <input type="text" @keyup.enter = "addTodo"  class="todoinput" placeholder="Cosa devi fare oggi?" v-model="newTodo.text">
         <button @click = "addTodo">Controlla</button>
         <div class="todo-container">
 
             <h2 class="nothing-todo":class="toDo.length == 0  ? 'active' : ''"> La lista è vuota</h2>
             <ul>
-                <li v-for="(todo,i) in toDo" :key="todo" class="todo" >
-                    {{ todo.text }}
-                    <i class="fas fa-times" @click="deletetodo(i)"></i>
+                <li v-for="(todo,i) in toDo" @click="checkList(todo)" @click="checkList(todo)" :class="todo.checked == true ? 'checked' : ''" :key="todo.text" class="todo" >
+                    {{ todo.text }} 
+                    <i class="fas fa-times" @click="deleteTodo(i)"></i>
                 </li>
             </ul>
         </div>
