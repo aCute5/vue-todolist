@@ -18,16 +18,16 @@ const app = new Vue(
            ],
            newTodo:{
              text:"",
-             checked: true,
+             checked: false,
            }
         },
         methods:{
             addTodo(){
-                if(this.newTodo.trim()){
-                    this.ToDo.push({
-                        text: this.newTodo,
-                    });
-                    this.newTodo = '';
+                if(this.newTodo.text.trim()){
+                    newTodo.text = this.newTodo.text.trim();
+                    this.toDo.push({...this.newTodo});
+                       this.newTodo.text="";ù
+                    }
                 }
             },
             deleteTodo(index){
@@ -41,4 +41,4 @@ const app = new Vue(
                 }
             }
         }
-})
+)
